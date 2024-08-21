@@ -28,7 +28,7 @@ def lambda_handler(event, context):
         temp_file.write(output_text)
         temp_file_name = temp_file.name
 
-    s3_client.upload_file(temp_file_name, '1216967843-output', base_filename + '.txt')
+    s3_client.upload_file(temp_file_name, '1-output', base_filename + '.txt')
 
     os.remove(download_path)
     os.remove(temp_file_name)
