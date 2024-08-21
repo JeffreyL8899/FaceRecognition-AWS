@@ -22,11 +22,11 @@ def lambda_handler(event, context):
     #Uploading images
     first_image = next((f for f in os.listdir(output_dir) if f.endswith(".jpg")), None)
     if first_image:
-        s3_client.upload_file(os.path.join(output_dir, first_image), '1216967843-stage-1', first_image)
-        logger.info(f"Uploaded {first_image} to '1216967843-stage-1' bucket")
+        s3_client.upload_file(os.path.join(output_dir, first_image), '1-stage-1', first_image)
+        logger.info(f"Uploaded {first_image} to '1-stage-1' bucket")
 
     logger.info("Upload complete")
-    invoke_face_recognition('1216967843-stage-1', first_image)
+    invoke_face_recognition('1-stage-1', first_image)
     logger.info("Face recognition invoked")
     os.remove(download_path)
     
